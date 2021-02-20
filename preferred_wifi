@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+# name of the preferred wifi connection (as in NetworkManager)
+PREFERRED=$1
+
+if [ $# -gt 1 ] && [ $2 = '-v' ]; then
+	DEBUG=true
+else
+	DEBUG=false
+fi
+
+dbg() {
+        if [ $DEBUG = true ]; then
+                echo "$1"
+        fi
+}
+
+CURRENT=$(nmcli -g NAME con show --active)
+
+if [ "$CURRENT" != "$PREFERRED" ] ; then
+	dbg "Connected to $CURRENT"
+	nmcli -g SSID device wifi list | grep -Fqwx "$PREFERRED"
+	if [ $? -eq 0 ] ; then
+		dbg "Attempting switch to $PREFERRED"
+		nmcli c u "$PREFERRED"
+	fi 
+fi
+
+
+
