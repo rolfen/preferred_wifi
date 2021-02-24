@@ -18,7 +18,7 @@ preferred_wifi CONNECTION [-v]
  
 ## Motivation
 
-NetworkManager can connecte automatically to wifi networks. However it will not reconnect to a different wifi network if it is already connected to one.
+NetworkManager can connect automatically to wifi networks. However it will not reconnect to a different wifi network if it is already connected to one.
 
 ## Requirements
 
