@@ -13,7 +13,7 @@ It is meant to be called periodically by cron.
 preferred_wifi CONNECTION [-v]
 ```
 
- - `CONNECTION` : The NetworkManager connection name for the preferred network
+ - `CONNECTION` : The NetworkManager connection name for the preferred wifi network
  - `-v` : Verbose
  
 ## Motivation
